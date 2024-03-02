@@ -1,0 +1,282 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.line1 {
+  -fx-fill: #99cc00;
+
+}
+
+.line2 {
+  -fx-fill: blue; 
+}
+
+.line3 {
+  -fx-fill: yellow; 
+}
+
+.button {
+    -fx-background-color: #87cefa;
+    -fx-text-fill: white;
+    -fx-background-radius: 20 20 20 20;
+}
+
+.dep-button {
+    -fx-background-color: #87cefa;
+    -fx-text-fill: white;
+    -fx-background-radius: 20 0 0 20;
+}
+
+.arr-button {
+    -fx-background-color: #87cefa;
+    -fx-text-fill: white;
+    -fx-background-radius: 0 20 20 0;
+}
+.button .graphic {
+    -fx-background-color: transparent;
+}
+
+.label {
+    -fx-text-fill: black;
+    -fx-padding: 0;
+}
+
+.dep_arr_label {
+   -fx-background-color: #87cefa;
+   -fx-text-fill: white;
+   -fx-background-radius: 20 0 0 20;
+}
+
+.count_label {
+   -fx-background-color: black;
+   -fx-text-fill: white;
+   -fx-background-radius: 20 20 20 20;
+   -fx-border-color: black;
+   -fx-border-width: 0px;  
+
+}
+
+.fare_label {
+   -fx-background-color: white;
+   -fx-text-fill: black;
+   
+   /*-fx-background-radius: 20 20 20 20;*/
+   
+   -fx-border-color: black;
+   -fx-border-width: 2px;  
+
+}
+
+.text-field {
+    -fx-background-color: #e0ffff; 
+    -fx-border-color: gray;
+    -fx-border-width: 0px;  
+   -fx-background-radius: 20 20 20 20;
+}
+
+.text-field2 {
+    -fx-background-color: #e0ffff; 
+    -fx-border-color: gray;
+    -fx-border-width: 0px;  
+   -fx-background-radius: 0 20 20 0;
+}
+
+
+
+.root{
+    -fx-background-color: white;
+}
+
+
+.cyan_back {
+    -fx-background-color: #e0ffff; 
+    
+}
+
+/*Rèü*/
+.yamanote {          
+  -fx-fill: #99cc00;
+}
+
+/*“ŒŠC“¹–{ü(‘å‘D‰w‚Ü‚Å)*/
+.toukaidouhon {
+  -fx-fill: #f68b1e;
+}
+
+/*“ì•ü(“ì•xüŠÜ‚Ş‘Sü‘S‰w)*/
+.nanbu {
+  -fx-fill: #ffd600;
+}
+
+/*•‘ –ìü*/
+.musashino {
+  -fx-fill: #ff4500;
+}
+
+/*‰¡•lü*/
+.yokohama {
+  -fx-fill: #9acd32;
+}
+
+/*’ßŒ©ü(xü‚ğŠÜ‚Ş‘Sü‘S‰w)*/
+.turumi {
+  -fx-fill: #ffd400;
+}
+
+/*‰¡{‰êü*/
+.yokosuka {
+  -fx-fill: #007ac0;
+}
+
+/*’†‰›–{ü(‚”ö‰w‚Ü‚Å)*/
+.tyuouhon {
+  -fx-fill: #007ac0;
+}
+
+/*Â”~ü*/
+.oume {
+  -fx-fill: #f15a22;
+}
+
+/*ŒÜ“úsü*/
+.itsukaichi {
+  -fx-fill: #f15a22;
+}
+
+/*“Œ–k–{ü(‘å‹{‰w‚Ü‚Å)*/
+.touhoku {
+  -fx-fill: #3cb371;
+}
+
+/*Ô‰Hü(é‹ü)*/
+.akabane {
+  -fx-fill: #00ac9a;
+}
+
+/*í”Öü(“ú•é—¢‰w-æè‰w)*/
+.jouban {
+  -fx-fill: #339999;
+}
+
+/*‘•–{ü(“Œ‹‰w-ç—t‰w)*/
+.soubu {
+  -fx-fill: #ffc500;
+}
+
+/*‹—tü(“Œ‹‰w-ç—t‚İ‚È‚Æ‰wAsì‰–•l‰w-¼‘D‹´‰w-“ì‘D‹´‰w)*/
+.keiyou {
+  -fx-fill: #c9252f;
+}
+
+/*‘•ü‰õ‘¬*/
+.soubukaisoku {
+  -fx-fill: #007ac0;
+}
+
+/*’†‰›ü‰õ‘¬*/
+.tyuoukaisoku {
+  -fx-fill: #f15a22;
+}
+
+/*ã–ì“Œ‹ƒ‰ƒCƒ“*/
+.uenotokyoline {
+  -fx-fill: #800080;
+}
+
+/*í”Öü‰õ‘¬*/
+.joubankaisoku {
+  -fx-fill: #339999;
+}
+
+/*í”ÖüŠe’â*/
+.joubankakutei {
+  -fx-fill: #00b261;
+}
+
+/*‚èü*/
+.takasaki {
+  -fx-fill: #f68b1e;
+}
+
+/*‰F“s‹{ü*/
+.utsunomiya {
+  -fx-fill: #f68b1e;
+}
+
+/*‹•l“Œ–küEªŠİü*/
+.keihintouhokunegishi {
+  -fx-fill: #00bae8;
+}
+
+/*Ã“ìVhƒ‰ƒCƒ“*/
+.syounanshinjuku {
+  -fx-fill: #e21f26;
+}
+
+/*’†‰›üE‘•ü(Še‰w)*/
+.tyuousoubukakueki {
+  -fx-fill: #ffd400;
+}
+
+/*”ª‚ü*/
+.hachikou {
+  -fx-fill: #a8a39d;
+}
+
+/*“à–[ü*/
+.uchibou {
+  -fx-fill: #00b2e5;
+}
+
+/*ŠO–[ü*/
+.sotobou {
+  -fx-fill: #dc4532;
+}
+
+/*Â”~üEŒÜ“úsü*/
+.oumeitsukaichi {
+  -fx-fill: #f15a22;
+}
+
+/*‹•l“Œ–kü*/
+.keihintouhoku {
+  -fx-fill: #00bae8;
+}
+
+/*“ŒŠC“¹ü*/
+.toukaidou {
+  -fx-fill: #f68b1e;
+}
+
+/*ªŠİü*/
+.negishi {
+  -fx-fill: #9acd32;
+}
+
+/*‘•ü‰õ‘¬E‰¡{‰êü*/
+.soubukaisokuyokosuka {
+  -fx-fill: #007ac0;
+}
+
+/*’†‰›ü*/
+.tyuou {
+  -fx-fill: #f15a22;
+}
+
+/*‘•üŠe’â*/
+.soubukakutei {
+  -fx-fill: #ffc500;
+}
+
+/*é‹ü*/
+.saikyou {
+  -fx-fill: #00ac9a;
+}
+
+/*é‹üE‚è‚ñ‚©‚¢ü*/
+.saikyourinkai {
+  -fx-fill: #00ac9a;
+}
+
+/*‘Š“SEJRü*/
+.aitetsujr {
+  -fx-fill: #00ac9a;
+}
