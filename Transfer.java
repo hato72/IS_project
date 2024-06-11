@@ -45,45 +45,46 @@ public class Transfer {
         	
         	//rowDateTimeは到着したい時間
         	TransferResult preResult = minTimeOneResult(start,goal,date,time,data).clone();
-        	
         	TransferResult preResult1 = preResult.clone();
-        	//System.out.println("pre1_first " +  preResult1.getGDate().getTime()); // Tue Dec 19 04:43:00 JST 2023
-//        	while(preResult1.getNext() != null) {
-//        		preResult1 = preResult1.getNext().clone();
-//        	}
-        	preResult1 = moveResult(preResult); 
-        	
-        	//System.out.println("pre1_last " + preResult1.getGDate().getTime()); //pre1 Tue Dec 19 04:43:00 JST 2023
-        	
-        	//System.out.println("rowDate " + rowDateTime.getTime()); // rowDate Tue Dec 19 03:10:00 JST 2023
-        	//System.out.println("date " + date.getTime());
-        	//Calendar date_1 = reCalendar(rowDateTime);
-        	//System.out.println("date1 " + rowDateTime.getTime()); 
-        	
+            preResult1 = moveResult(preResult); 
+        
+            /*
+              	System.out.println("pre1_first " +  preResult1.getGDate().getTime()); // Tue Dec 19 04:43:00 JST 2023
+                while(preResult1.getNext() != null) {
+                preResult1 = preResult1.getNext().clone();
+                }
+            */        	
+        	/*  System.out.println("pre1_last " + preResult1.getGDate().getTime()); //pre1 Tue Dec 19 04:43:00 JST 2023
+        	    System.out.println("rowDate " + rowDateTime.getTime()); // rowDate Tue Dec 19 03:10:00 JST 2023
+        	    System.out.println("date " + date.getTime());
+        	    Calendar date_1 = reCalendar(rowDateTime);
+        	    System.out.println("date1 " + rowDateTime.getTime()); 
+        	*/
+
         	//preResult1は電車の到着時間
-        	if (!preResult1.getGDate().before(rowDateTime)) { //preResult1がrowDateTimeよりも遅い
+        	if (!preResult1.getGDate().before(rowDateTime)) { //最初の時点でpreResult1がrowDateTimeよりも遅い
         		
         		//1時30をこえていたら1時30に設定
         		if(time >= 253000 && time <= 265900) { 
         			time = 253000;
         			
-        			while(!preResult1.getGDate().before(rowDateTime)) {
+        			while(!preResult1.getGDate().before(rowDateTime)) { //preResult1がrowDateTimeよりも早くなるまで繰り返す
         				time -= 1000;
         				preResult1 = minTimeOneResult(start,goal,date,time,data).clone();
         				preResult1 = moveResult(preResult1);
         			}
         			
-        			while(true) { //preResult1がrowDateTimeよりもはやいときだけ繰り返す
+        			while(true) { //preResult1がrowDateTimeよりも早い
                 		
-//                		int new_time = TRToInt(preResult2);
-//                		int dif_time = time - new_time;
-//                		System.out.println("dif_time " + dif_time); //300=5分
-//                		nexttime = Time.plus(nexttime, Math.max(dif_time, 1));
-//                		System.out.println("nt2 " + nexttime); //nt2 192800
-                		
+                        /*
+                        int new_time = TRToInt(preResult2);
+                		int dif_time = time - new_time;
+                		System.out.println("dif_time " + dif_time); //300=5分
+                		nexttime = Time.plus(nexttime, Math.max(dif_time, 1));
+                		System.out.println("nt2 " + nexttime); //nt2 192800
+                        */	
                 		
                 		time = Time.plus(time, 60); //一分
-                		//System.out.println("abcd" + nexttime); 
                 		
                 		TransferResult preResult2 = minTimeOneResult(start,goal,date,time,data);
                 		TransferResult preResult3 = preResult2.clone();
@@ -91,7 +92,7 @@ public class Transfer {
 //                    		preResult3 = preResult3.getNext().clone();
 //                    	}
                 		preResult3 = moveResult(preResult3);
-                		System.out.println("pre4" + preResult3.getGDate().getTime()); 
+                		//System.out.println("pre4" + preResult3.getGDate().getTime()); 
                     	
                 		if (!preResult3.getGDate().before(rowDateTime)){
                 			break;
@@ -130,11 +131,9 @@ public class Transfer {
                 		
                 		TransferResult preResult2 = minTimeOneResult(start,goal,date,time,data);
                 		TransferResult preResult3 = preResult2.clone();
-//                    	while(preResult3.getNext() != null) {
-//                    		preResult3 = preResult3.getNext().clone();
-//                    	}
+//                    	
                 		preResult3 = moveResult(preResult3);
-                		System.out.println("pre4" + preResult3.getGDate().getTime()); 
+                		//System.out.println("pre4" + preResult3.getGDate().getTime()); 
                     	
                 		if (!preResult3.getGDate().before(rowDateTime)){
                 			break;
@@ -147,9 +146,9 @@ public class Transfer {
                 	 
                 	result[0] = TransferResult.getFirst(preResult1);
         		}
-        		else {
+        		else { //通常運行時間のとき
         			TransferResult preResult_1 = minTimeOneResult(start,goal,date,time,data).clone();
-            		System.out.println("pre1_last " + preResult_1.getGDate().getTime()); 
+            		//System.out.println("pre1_last " + preResult_1.getGDate().getTime()); 
             		        		        		
             		//Calendar ca = reCalendar(preResult1.getGDate());
             		int newtime = TRToInt(preResult_1); //
@@ -179,7 +178,7 @@ public class Transfer {
             			int n_time = TRToInt(preResult2); 
             			int dif_time = n_time-time; 
             			nexttime -= dif_time;
-            			System.out.println("nexttime1 " + nexttime); 
+            			//System.out.println("nexttime1 " + nexttime); 
             			
             			
             			preResult2 = minTimeOneResult(start,goal,date,nexttime,data).clone();
@@ -207,7 +206,7 @@ public class Transfer {
 //                    		preResult3 = preResult3.getNext().clone();
 //                    	}
                 		preResult4 = moveResult(preResult4);
-                		System.out.println("pre4" + preResult4.getGDate().getTime()); 
+                		//System.out.println("pre4" + preResult4.getGDate().getTime()); 
                     	
                 		if (!preResult4.getGDate().before(rowDateTime)){
                 			break;
@@ -222,7 +221,7 @@ public class Transfer {
         		}
         		
         	}
-        	else { //preResult1がrowDateTimeより速い
+        	else { //preResult1がrowDateTimeより早い
         		TransferResult preResult2 = preResult1.clone();
 //            	while(preResult2.getNext() != null) {
 //            		preResult2 = preResult2.getNext().clone();
@@ -250,7 +249,6 @@ public class Transfer {
         	}
         	//preResult1.getGDate() - rowDateTime < 0になるようなpreResult1をかえしたい
         	/*
-        	 * ---服部担当---
         	 * ここを埋めてpreResult.goalDateがrowDateTimeより早くなるようにする
         	 * つまりpreResult.goalDate.before(rowDateTime)==trueとなるようなpreResultを求める
         	 */
@@ -261,8 +259,7 @@ public class Transfer {
             //System.out.println("result is not null");
         }
         */
-        return result;
-        
+        return result;   
     }
     
     private int TRToInt(TransferResult preResult) { //preResultを受け取って6桁のint型で返す
