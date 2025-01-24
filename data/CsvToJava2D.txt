@@ -1,0 +1,170 @@
+package routesearch.data;
+
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CsvToJava2D {
+    public static void main(String[] args) {       
+        // For Example
+         
+        ArrayList<String[][]> test = new ArrayList<String[][]>();
+        //Path path = Paths.get("C:\\Users\\yusuk\\OneDrive\\デスクトップ\\プロジェクト課題\\csv_data\\Chuo_Line_Rapid_Downbound_Tokyo-Takao_Saturdays_Holidays.csv");
+        Path path = Paths.get("E:\\pleiades\\2023-09\\workspace\\RouteSearch\\src\\routesearch\\data\\Keihin_Tohoku_Line_Negishi_Line_Northbound_Ofuna_-_Yokohama_-_Tokyo_-_Ueno_-_Akabane_-_Omiya_weekdays.csv");
+        
+        
+        String[][] test2 = Create2D(path).get(0);
+        for(String[] rowList : test2) {
+        	for(String s : rowList) {
+        		System.out.printf(s+" ");
+        	}
+        	System.out.println("");
+        }
+        //test = Create2D(path);
+        //System.out.println(test);
+        /*
+        for (String[][] row : test) {
+            System.out.println(Arrays.deepToString(row));
+        }
+        */
+        /*
+        test = ArrayCreate(path);
+        for (String[][] row : test) {
+            System.out.println(Arrays.deepToString(row));
+        }
+        /*
+        for(String[][] sListList : test) {
+        	for(String[] sList : sListList) {
+        		for(String s : sList) {
+        			System.out.printf(s);
+        		}
+        		System.out.println("");
+        	}
+        }
+        */
+        //System.out.println(test);
+    }
+    
+    // pathと行を指定すると指定csvファイルの指定行をArrayListに変換して返す関数。
+    public static ArrayList<String> _changeJavaArray(Path path,int line){
+        
+        ArrayList<String> datas = new ArrayList<String>();
+        
+        try {
+            // CSVファイルの読み込み*UTF-8以外なら変更してください。
+            List<String> lines = Files.readAllLines(path, Charset.forName("UTF-8"));
+            
+            String[] data = lines.get(line).split(",");
+            
+            for (int j = 0; j < data.length ; j++) {
+                datas.add(data[j]);
+            }
+
+        } catch (IOException e) {
+            System.out.println("ファイル読み込みに失敗");
+        }
+
+        return (datas);
+    }
+    
+
+    public static ArrayList<String[][]> ArrayCreate(Path path){
+        ArrayList<String[][]> creation = new ArrayList<>();
+        //File file = new File(pathsame);
+        //FileReader fileReader = new FileReader(file);
+        //BufferedReader bufferedReader = new BufferedReader(fileReader);
+        //String cell;
+        //ArrayList<String> datas = new ArrayList<String>();
+        try {
+            List<String> lines = Files.readAllLines(path, Charset.forName("UTF-8"));
+
+            int i = 0;
+            //while((cell = bufferedReader.readLine()) != null)
+            for(String line : lines)
+            {
+                
+                String[] data = lines.get(i).split(",");
+                String[][] datas = new String[1][data.length];
+                for (int j = 0; j < data.length ; j++) {
+                    datas[0][j]=data[j];
+                    //creation.add(datas);
+                }
+                String[][] copy = new String[1][data.length];
+            System.arraycopy(datas[0], 0, copy[0], 0, data.length);
+                creation.add(copy);
+                i += 1;
+            }
+        } catch (IOException e) {
+            System.out.println("ファイル読み込みに失敗");
+        }
+
+        return (creation);
+
+    }
+
+    
+    public static ArrayList<String[][]> Create2D(Path path){
+        ArrayList<String[][]> creation = new ArrayList<>();
+        try{
+        List<String> lines = Files.readAllLines(path, Charset.forName("UTF-8"));
+        
+        //行数をあらかじめ取得
+        int size = Count(path);
+
+        String[][] datas = new String[size][lines.get(0).split(",").length];
+        int i = 0;
+        for(String line : lines){
+            String[] data = lines.get(i).split(",");
+            
+            
+            for (int j = 0; j < data.length ; j++) {
+                    datas[i][j]=data[j];
+                }
+            
+            
+            
+            if(line.isEmpty()) break;
+
+            i += 1;
+        }
+        
+        creation.add(datas);
+        
+        } catch (IOException e) {
+            System.out.println("ファイル読み込みに失敗");
+        }
+        /*
+        //正しく読み込めているか確認
+        if(creation.size()>0) {
+	        for(String[] rowList : creation.get(0)) {
+	        	for(String s : rowList) {
+	        		System.out.printf(s+" ");
+	        	}
+	        	System.out.println("");
+	        }
+        }
+        */
+        return creation;
+    }
+
+    public static int Count(Path path){
+        int i = 0;
+        try{
+        List<String> lines = Files.readAllLines(path, Charset.forName("UTF-8"));
+        
+        for(String line : lines){
+            if(line.isEmpty()) break;
+            i += 1;
+        }
+        } catch (IOException e) {
+            System.out.println("ファイル読み込みに失敗");
+        }
+        return i;
+    }
+    
+
+}

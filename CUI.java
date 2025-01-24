@@ -15,7 +15,7 @@ public class CUI extends Application {
     public void start(Stage primaryStage) {
     	//↓routesearchの絶対パスを指定する(末尾がroutesearch\\)
     	//String path = "E:\\pleiades\\2023-09\\workspace\\RouteSearch\\src\\routesearch\\";
-    	String path = "C:\\pleiades\\2023-12\\workspace\\project_fx\\src\\routesearch\\";
+    	String path = "C:\\routesearch\\";
     	//String path = new File("routesearch\\").getAbsolutePath()+"\\";//これで取得できそうならこれ使ってください
     	Data data = new Data(path);
     	
